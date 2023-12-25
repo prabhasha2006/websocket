@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="http://prabhasha.rf.gd/media/icon.jpg">
+    <link rel="stylesheet" href="./prabhasha-v2.css">
+    <link rel="stylesheet" href="./background.css">
+    <link rel="stylesheet" href="./body-v2.css">
+    <link rel="stylesheet" href="./clock.css">
+    <style>.bubbles{
+        position:absolute;
+        width:100%;
+        height: 100%;
+        z-index:-1;
+        overflow:hidden;
+        top:0;
+        left:0;
+      }
+      .bubble{
+        position: absolute;
+        bottom:-100px;
+        width:40px;
+        height: 40px;
+        background:#0000001e;
+        border-radius:50%;
+        opacity:0.5;
+        animation: rise 10s infinite ease-in;
+      }
+      .bubble img {
+        height: 100%;
+        width: 100%;
+        border-radius: 100%;
+      }
+      .bubble:nth-child(1){
+        width:40px;
+        height:40px;
+        left:10%;
+        animation-duration:8s;
+      }
+      .bubble:nth-child(2){
+        width:20px;
+        height:20px;
+        left:20%;
+        animation-duration:5s;
+        animation-delay:1s;
+      }
+      .bubble:nth-child(3){
+        width:50px;
+        height:50px;
+        left:35%;
+        animation-duration:7s;
+        animation-delay:2s;
+      }
+      .bubble:nth-child(4){
+        width:80px;
+        height:80px;
+        left:50%;
+        animation-duration:11s;
+        animation-delay:0s;
+      }
+      .bubble:nth-child(5){
+        width:35px;
+        height:35px;
+        left:55%;
+        animation-duration:6s;
+        animation-delay:1s;
+      }
+      .bubble:nth-child(6){
+        width:45px;
+        height:45px;
+        left:65%;
+        animation-duration:8s;
+        animation-delay:3s;
+      }
+      .bubble:nth-child(7){
+        width:90px;
+        height:90px;
+        left:70%;
+        animation-duration:12s;
+        animation-delay:2s;
+      }
+      .bubble:nth-child(8){
+        width:25px;
+        height:25px;
+        left:80%;
+        animation-duration:6s;
+        animation-delay:2s;
+      }
+      .bubble:nth-child(9){
+        width:15px;
+        height:15px;
+        left:70%;
+        animation-duration:5s;
+        animation-delay:1s;
+      }
+      .bubble:nth-child(10){
+        width:90px;
+        height:90px;
+        left:25%;
+        animation-duration:10s;
+        animation-delay:4s;
+      }
+      @keyframes rise{
+        0%{
+          bottom:-100px;
+          transform:translateX(0);
+        }
+        50%{
+          transform:translate(100px);
+        }
+        100%{
+          bottom:1080px;
+          transform:translateX(-200px);
+        }
+      }
+    
+    
+    
+    
+    
+    
+      .bg {
+        animation:slide 3s ease-in-out infinite alternate;
+        background-image: linear-gradient(-60deg, rgb(255, 179, 149) 50%, rgb(154, 255, 162) 50%);
+        bottom:0;
+        left:-50%;
+        opacity:.5;
+        position:fixed;
+        right:-50%;
+        top:0;
+        z-index:-1;
+      }
+      
+      .bg2 {
+        animation-direction:alternate-reverse;
+        animation-duration:4s;
+      }
+      
+      .bg3 {
+        animation-duration:5s;
+      }
+      @keyframes slide {
+        0% {
+          transform:translateX(-25%);
+        }
+        100% {
+          transform:translateX(25%);
+        }
+      }
+      /*popins*/@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+.box-footer {
+    width: 100%;
+    height: 100px;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+.app {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 0, 0, 0);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.app-icon {
+    width: 50px;
+    height: 50px;
+}
+.app-icon:hover {
+    filter: brightness(120%);
+}
+.app-name {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    padding: 5px;
+    color: rgb(70, 70, 70);
+}
+
+.app-icon-battery {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: rgba(179, 179, 179, 0.322);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.battery-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(rgb(0, 195, 255), rgb(0, 183, 255));
+}
+.battery-persentage {
+    color: rgb(255, 255, 255);
+    text-shadow: 00 1px 10px grey;
+    font-family: "Poppins", sans-serif;
+}
+.battery-persentage-1 {
+    color: rgb(255, 255, 255);
+    text-shadow: 00 1px 10px grey;
+    font-size: 10px;
+    margin-top: -5px;
+    font-family: "Poppins", sans-serif;
+}
+/*asap*/@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+.clock {
+    position: absolute;
+    margin-top: 160px;
+    display: flex;
+    width: 220px;
+}
+.time {
+    margin-top: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+}
+.date {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-right: 20px;
+    justify-content: flex-end;
+}
+.time h2,h3 {
+    color: rgba(0, 0, 0, 0.425);
+    font-family: "Asap", sans-serif;
+}
+.date h3,h5 {
+    color: rgba(0, 0, 0, 0.425);
+    font-family: "Asap", sans-serif;
+}
+.climate {
+
+}
+.climate img {
+    height: 40px;
+}
+/*asap*/@import url('https://fonts.googleapis.com/css2?family=Asap&display=swap');
+/*popins*/@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgb(255, 255, 255);
+}
+.box {
+    width: 100%;
+    height: 100vh;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0);
+}
+.box-head {
+    width: 100%;
+    height: 50vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0);
+}
+.profile {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.profile img {
+    height: 220px;
+    border-radius: 15%;
+    transition: .5s;
+}
+.profile img:hover {
+    transform: rotateY(180deg) rotateX(50deg);
+}
+
+.box-head h1 {
+    color: rgb(0, 60, 255);
+    font-family:Arial, Helvetica, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-family: "Asap", sans-serif;
+    font-size: 30px;
+}</style>
+    <title>Kumuthu Prabhasha</title>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <!--Hey safebrowsing google! This is not an illigle.  It's my own profile card. This contains my social media usernames only. Do not panic please...-->
+    <!--One time you banned this code for the illigle content. Please don't do that again!-->
+</head>
+<body>
+    <div class="bg"></div>
+    <div class="bg bg2"></div>
+    <div class="bg bg3"></div>
+    <div class="bubbles">
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+        <div class="bubble">
+            <img src="http://prabhasha.rf.gd/media/icon.jpg">
+        </div>
+    </div>
+    <div class="box">
+        <div class="box-head">
+            <div class="profile">
+                <img src="http://prabhasha.rf.gd/media/icon.jpg">
+                <div class="clock">
+                    <div id="timeline" class="time">
+                        <h2>09:37</h2><h3>:53</h3>
+                    </div>
+                    <div class="date">
+                        <h5>2023</h5>
+                        <h3 id="month">June</h3>
+                    </div>
+                </div>
+            </div>
+            <h1>Kumuthu Prabhasha</h1>
+        </div>
+        <div class="box-footer">
+            <div class="app" onclick="redirect('wa.me/94776115376')">
+                <img src="https://cdn-icons-png.flaticon.com/512/2504/2504845.png" class="app-icon" style="background-color: white; border-radius: 100%;">
+                <h3 class="app-name">WhatsApp</h3>
+            </div>
+            <div class="app" onclick="redirect('t.me/kumuthu')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968804.png" class="app-icon">
+                <h3 class="app-name">Telegram</h3>
+            </div>
+            <div class="app"  onclick="redirect('discordapp.com/users/evelocode')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" class="app-icon">
+                <h3 class="app-name">Discord</h3>
+            </div>
+            <div class="app" onclick="redirect('www.facebook.com/profile.php?id=100080792106732&mibextid=ZbWKwL')">
+                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png" class="app-icon">
+                <h3 class="app-name">Facebook</h3>
+            </div>
+        </div>
+        <div class="box-footer">
+            <a href="mailto:kumuthuprabhasha@gmail.com" class="app">
+                <img src="https://cdn-icons-png.flaticon.com/512/10829/10829119.png" class="app-icon">
+                <h3 class="app-name">Gmail</h3>
+            </a>
+            <a onclick="redirect('instagram.com/u.v.d.k.prabhasha')" class="app">
+                <img src="https://cdn-icons-png.flaticon.com/512/3955/3955024.png" class="app-icon">
+                <h3 class="app-name">Instagram</h3>
+            </a>
+            <a href="tel:0776115376" class="app">
+                <img src="https://play-lh.googleusercontent.com/vXqzrIzaypJgj1sru5cqg_BL_sKODigttexWI4Ci-zVpNEFC1dTLprqMVQMC6GH6azE" style="border-radius: 100%;" class="app-icon">
+                <h3 class="app-name">Phone</h3>
+            </a>
+            <div class="app" onclick="redirect('github.com/prabhasha2006')">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" class="app-icon">
+                <h3 class="app-name">Github</h3>
+            </div>
+        </div>
+        <div class="box-footer">
+            <a href="mailto:kumuthuprabhasha@gmail.com" class="app">
+                <img src="https://cdn-icons-png.flaticon.com/512/10024/10024002.png" class="app-icon">
+                <h3 class="app-name">Settings</h3>
+            </a>
+            <a onclick="torch()" class="app">
+                <img src="https://cdn-icons-png.flaticon.com/512/3222/3222801.png" class="app-icon">
+                <h3 class="app-name">Weather</h3>
+            </a>
+            <a onclick="redirect('evelocode.com')" class="app">
+                <img src="https://cdn-icons-png.flaticon.com/512/888/888846.png" class="app-icon">
+                <h3 class="app-name">Chrome</h3>
+            </a>
+            <!--<a class="app">
+                <div class="app-icon-battery">
+                    <div class="battery-image">
+                        <div class="battery-persentage">90%</div>
+                        <div class="battery-persentage-1">Good</div>
+                    </div>
+                </div>
+                <h3 class="app-name">Battery</h3>
+            </a>-->
+            <div onclick="alert('No more added!')" class="app">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Apps_icon-72a7cf.svg/1024px-Apps_icon-72a7cf.svg.png" class="app-icon">
+                <h3 class="app-name">More</h3>
+            </div>
+        </div>
+    </div>
+    <script>const redirect = (url) => {
+        window.open("http://"+url,"_blank")
+    }
+    </script>
+    <script src="./battery.js"></script>
+    <script>const n2 = (digit) => {
+        if(digit < 10){
+            return "0"+digit
+        }else{
+            return digit
+        }
+    }
+    const mm = (month) => {
+        switch(month){
+            case 0 :{
+                return 'January'
+            }break
+            case 1 :{
+                return 'February'
+            }break
+            case 2 :{
+                return 'March'
+            }break
+            case 3 :{
+                return 'April'
+            }break
+            case 4 :{
+                return 'May'
+            }break
+            case 5 :{
+                return 'June'
+            }break
+            case 6 :{
+                return 'July'
+            }break
+            case 7 :{
+                return 'August'
+            }break
+            case 8 :{
+                return 'September'
+            }break
+            case 9 :{
+                return 'October'
+            }break
+            case 10 :{
+                return 'November'
+            }break
+            case 11 :{
+                return 'December'
+            }break
+        }
+    }
+    const timeLine = document.getElementById('timeline')
+    const monthLine = document.getElementById("month")
+    setInterval(()=>{
+        var hour = 0
+        var minut = 0
+        var second = 0
+        var month = 0
+        var d = new Date()
+        hour = d.getHours()
+        minut = d.getMinutes()
+        second = d.getSeconds()
+        month = d.getMonth()
+        timeLine.innerHTML = `<h2>${n2(hour)}:${n2(minut)}</h2><h3>:${n2(second)}</h3>`
+        monthLine.innerHTML = mm(month)
+    },1000)</script>
+</body>
+</html>
