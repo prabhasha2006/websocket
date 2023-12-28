@@ -1,39 +1,36 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const bodyParser = require("body-parser");
-const workoutRoutes = require("./routes/workouts");
-const socketIo = require("socket.io");
+require('dotenv').config()
+const express = require('express')
+const app = express()
+const workoutRoutes = require('./routes/workouts')
+const socketio = require('socket.io')(5556, {
+    cors: {
+        origin: ['http://localhost:5557/']
+    }
+})
+//app
+
 //middleware
-app.use(express.json());
-app.use(express.static(`${process.cwd()}/website`));
-app.use(bodyParser.json({ limit: "1000mb" }));
-app.set("trust proxy", true);
+app.use(express.json())
 app.use((request, res, next) => {
-  console.log(request.path, request.method);
-  next();
-});
-app.use("/api/workouts", workoutRoutes);
+    console.log(request.path, request.method)
+    next()
+})
+app.use('/api/workouts', workoutRoutes)
+
+//Identify direct path
+app.use(express.static(`${process.cwd()}/website`));
+
 //router
-app.get("/", (request, res) => {
-  //res.json({mssg: "Hello Kumuthu"})
-  res.sendFile("./website/index.html", { root: __dirname });
-});
+app.get('/', (request, res) => {
+    //res.json({mssg: "Hello Kumuthu"})
+    res.sendFile('./website/index.html', { root: __dirname })
+}) 
 //listen
-const server = app.listen(process.env.PORT, () => {
-  console.log("Listerning Port => ", process.env.PORT);
-});
+app.listen(process.env.PORT, () => {
+    console.log('Listerning Port => ',process.env.PORT)
+})
 
 //websocker
-
-const io = socketIo(server, {
-  cors: {
-    origin: process.env.FRONTEND_URI,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-    credentials: true,
-  },
-  transports: ["polling", "websocket"], // Enable WebSocket transport
-});
-io.on("connection", (socket) => {
-  console.log("connected");
-});
+socketio.on('connection', socket => {
+    console.log('connected..! ', socket.id)
+})
